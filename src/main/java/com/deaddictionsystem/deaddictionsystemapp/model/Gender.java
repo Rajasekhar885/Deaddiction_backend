@@ -3,8 +3,7 @@ package com.deaddictionsystem.deaddictionsystemapp.model;
 public enum Gender {
     MALE("Male"),
     FEMALE("Female"),
-    OTHER("Other"),
-    GENDERNOTDISCLOSED("Gender not disclosed");
+    OTHER("Other");
 
     private final String gender;
 
