@@ -33,13 +33,17 @@ public class Patient {
     private String contactNumber;
 
     @Enumerated(EnumType.STRING)
-    private AddictionType addictionType;
+    private Addictiontype addictiontype;
 
-    private LocalDateTime checkIn;
+    private String checkIn;
 
-    private LocalDateTime checkOut;
+    private String checkOut;
 
-    private LocalDateTime nextFollowup;
+        private String nextFollowup;
+
+//    @JoinColumn(name="patientId")
+//    @OneToMany(cascade=CascadeType.ALL,fetch = FetchType.EAGER  )
+//    private Set<Medication> medication ;
 
     private String medication;
 
@@ -50,28 +54,30 @@ public class Patient {
     public Patient() {
     }
 
-    public Patient(String patientName, String uniqueId, Integer age, Gender gender, String mail, String contactNumber, AddictionType addictionType) {
+    public Patient(String patientName, String uniqueId, Integer age, Gender gender, String mail, String contactNumber, Addictiontype addictiontype) {
         this.patientName = patientName;
         this.uniqueId = uniqueId;
         this.age = age;
         this.gender = gender;
         this.mail = mail;
         this.contactNumber = contactNumber;
-        this.addictionType = addictionType;
+        this.addictiontype = addictiontype;
     }
 
-    public Patient(String patientName,String uniqueId, Integer age, Gender gender, String mail, String contactNumber, AddictionType addictionType, LocalDateTime checkIn, LocalDateTime checkOut, LocalDateTime nextFollowup, String sessionDescription, String followupInfo) {
+    public Patient(String patientName, String uniqueId, Integer age, Gender gender, String mail, String contactNumber, Addictiontype addictiontype, String checkIn, String checkOut, String nextFollowup, String medication, String sessionDescription, String followupInfo) {
         this.patientName = patientName;
         this.uniqueId = uniqueId;
         this.age = age;
         this.gender = gender;
         this.mail = mail;
         this.contactNumber = contactNumber;
-        this.addictionType = addictionType;
+        this.addictiontype = addictiontype;
         this.checkIn = checkIn;
         this.checkOut = checkOut;
         this.nextFollowup = nextFollowup;
+        this.medication = medication;
         this.sessionDescription = sessionDescription;
         this.followupInfo = followupInfo;
     }
 }
+

@@ -11,10 +11,15 @@ public interface IPatientService {
 
     void updatePatient(Patient patient);
 
+    void patchPatient(Patient patient);
+
     void deletePatient(int patientId);
 
     List<Patient> getAllPatients();
 
     Patient getPatientById(int patientId);
+
+    List<Patient>getPatientsByFollowUpDate(String nextFollowup);
+    List<Patient>getPatientsByMail(String mail);
 
 }

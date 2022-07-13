@@ -17,13 +17,17 @@ public interface IPatientRepository extends JpaRepository<Patient,Integer> {
     @Query("from Patient p where p.contactNumber LIKE %?1%")
     List<Patient> findPatientByContactNumber(String contactNumber);
 
+    @Query("from Patient p where p.mail LIKE %?1%")
+    List<Patient> findPatientByMail(String mail);
+
     @Query("from Patient p where p.medication LIKE %?1%")
     List<Patient> findPatientByMedication(String medication);
 
     @Query("from Patient p where p.checkIn = ?1")
     List<Patient> findPatientByCheckIn(LocalDateTime checkIn);
 
-    @Query("from Patient p where p.nextFollowup = ?1")
-    List<Patient> findPatientByNextFollowup(LocalDateTime nextFollowup);
+    @Query("from Patient p where p.nextFollowup LIKE %?1%")
+    List<Patient> findPatientByNextFollowup(String nextFollowup);
+
 
 }

@@ -1,6 +1,6 @@
 package com.deaddictionsystem.deaddictionsystemapp.model;
 
-public enum AddictionType {
+public enum Addictiontype {
     ALCOHOL("Alcohol"),
     DRUGS("drugs"),
     GAMBLING("Gambling"),
@@ -9,7 +9,7 @@ public enum AddictionType {
 
     private final String addiction;
 
-    AddictionType(String addiction) {
+    Addictiontype(String addiction) {
         this.addiction = addiction;
     }
 }

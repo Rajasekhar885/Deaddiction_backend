@@ -39,6 +39,14 @@ public class PatientController {
         return ResponseEntity.status(HttpStatus.ACCEPTED).headers(headers).build();
     }
 
+    @PatchMapping("/patch/patient")
+    public ResponseEntity<Void> patchPatient(@RequestBody Patient patient) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("desc", "patch patient info");
+        patientService.patchPatient(patient);
+        return ResponseEntity.status(HttpStatus.ACCEPTED).headers(headers).build();
+    }
+
     @GetMapping("/patients")
     public ResponseEntity<List<Patient>>getAllPatients(){
         HttpHeaders headers = new HttpHeaders();
@@ -53,5 +61,23 @@ public class PatientController {
         HttpHeaders headers = new HttpHeaders();
         Patient patient = patientService.getPatientById(patientId);
         return ResponseEntity.status(HttpStatus.OK).headers(headers).body(patient);
+    }
+
+    @GetMapping("/patients/followup/{nextFollowup}")
+    public ResponseEntity<List<Patient>>getPatientsByFollowupDate(@PathVariable("nextFollowup") String nextFollowup){
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("desc", "Getting Patients by followup date");
+        List<Patient> patients = patientService.getPatientsByFollowUpDate(nextFollowup);
+        ResponseEntity<List<Patient>> patientResponse = new ResponseEntity(patients, headers, HttpStatus.OK);
+        return patientResponse;
+    }
+
+    @GetMapping("/patients/mail/{mail}")
+    public ResponseEntity<List<Patient>>getPatientsByMail(@PathVariable("mail") String mail){
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("desc", "Getting Patients by mail");
+        List<Patient> patients = patientService.getPatientsByMail(mail);
+        ResponseEntity<List<Patient>> patientResponse = new ResponseEntity(patients, headers, HttpStatus.OK);
+        return patientResponse;
     }
 }

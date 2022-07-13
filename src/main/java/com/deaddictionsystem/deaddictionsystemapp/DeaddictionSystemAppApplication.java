@@ -31,18 +31,22 @@ public class DeaddictionSystemAppApplication implements CommandLineRunner {
 
 //		System.out.println(userService.getUserByEmail("VijayK@gmail.com"));
 
-		Patient patient = new Patient("Francis","DAD000001", 32, Gender.MALE,"Francis007@gmail.com","9998887776", AddictionType.GAMBLING);
-
-
-
+//		Medication	medication1 = new Medication(("Paracetmol"));
+//		Set<Medication> medication =new HashSet<>(Arrays.asList(medication1));
+//
+//		Patient patient = new Patient("Francis","DAD000001",32,Gender.MALE,"Francis007@gmail.com","9998887776", Addictiontype.GAMBLING);
+//
 //		patientService.addPatient(patient);
 //
 //
-//		Patient patient1;
+		Patient patient1;
 //
 
-//		patient1= patientService.getPatientById(100);
+//		patient1= patientService.getPatientsByFollowUpDate("");
 //
+		System.out.println("asdf");
+
+//		System.out.println(patientService.getPatientsByFollowUpDate("2022-07-25"));
 
 //		patient1.setAge(20);
 //		patientService.updatePatient(patient1);

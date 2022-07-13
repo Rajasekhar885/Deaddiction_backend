@@ -29,6 +29,11 @@ public class PatientServiceImpl implements IPatientService{
     }
 
     @Override
+    public void patchPatient(Patient patient) {
+        patientRepository.save(patient);
+    }
+
+    @Override
     public void deletePatient(int patientId) {
         patientRepository.deleteById(patientId);
     }
@@ -43,5 +48,21 @@ public class PatientServiceImpl implements IPatientService{
         return patientRepository.findById(patientId).orElseThrow(()->{
            throw new PatientNotFoundException() ;
         });
+    }
+
+    @Override
+    public List<Patient> getPatientsByFollowUpDate(String nextFollowup) {
+        return patientRepository.findPatientByNextFollowup(nextFollowup);
+    }
+
+    @Override
+    public List<Patient> getPatientsByMail(String mail) {
+//        return patientRepository.findPatientByNextFollowup(mail);
+
+        List<Patient> patients = patientRepository.findPatientByMail(mail);
+        if(patients==null)
+            throw new PatientNotFoundException("Not found Patient with this mail");
+        return patients;
+
     }
 }
